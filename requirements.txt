@@ -1,0 +1,7 @@
+pyaudiowpatch
+faster-whisper
+deepl
+PyQt6
+scipy
+numpy
+python-dotenv
