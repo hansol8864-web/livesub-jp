@@ -1,18 +1,21 @@
-import deepl
+from deep_translator import GoogleTranslator
 
 
 class Translator:
-    def __init__(self, api_key: str):
-        self.client = deepl.Translator(api_key)
+    """일본어 → 한국어 무료 번역기 (Google Translate 비공식 인터페이스).
+
+    API 키 불필요. 인터넷 연결 필요.
+    """
+
+    def __init__(self):
+        self.client = GoogleTranslator(source="ja", target="ko")
 
     def translate(self, text: str) -> str:
-        if not text.strip():
+        text = text.strip()
+        if not text:
             return ""
         try:
-            result = self.client.translate_text(
-                text, source_lang="JA", target_lang="KO"
-            )
-            return result.text
-        except deepl.DeepLException as e:
+            return self.client.translate(text)
+        except Exception as e:
             print(f"[번역 오류] {e}")
             return text

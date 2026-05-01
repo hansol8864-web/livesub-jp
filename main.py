@@ -1,17 +1,13 @@
-import os
 import queue
 import sys
 import threading
 
-from dotenv import load_dotenv
 from PyQt6.QtWidgets import QApplication
 
 from audio_capture import AudioCapture
 from overlay import SubtitleOverlay
 from transcribe import Transcriber
 from translate import Translator
-
-load_dotenv()
 
 
 def _worker(audio_queue: queue.Queue, transcriber: Transcriber,
@@ -33,18 +29,13 @@ def _worker(audio_queue: queue.Queue, transcriber: Transcriber,
 
 
 def main():
-    api_key = os.environ.get("DEEPL_API_KEY", "")
-    if not api_key:
-        print("[오류] .env 파일에 DEEPL_API_KEY가 없어요")
-        sys.exit(1)
-
     app = QApplication(sys.argv)
 
     overlay = SubtitleOverlay()
     overlay.show()
 
     transcriber = Transcriber()
-    translator = Translator(api_key)
+    translator = Translator()
 
     audio_queue: queue.Queue = queue.Queue(maxsize=3)
     capture = AudioCapture(audio_queue)

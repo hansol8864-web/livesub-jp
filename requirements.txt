@@ -1,7 +1,6 @@
 pyaudiowpatch
 faster-whisper
-deepl
+deep-translator
 PyQt6
 scipy
 numpy
-python-dotenv
