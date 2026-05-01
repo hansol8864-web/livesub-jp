@@ -4,3 +4,5 @@ deep-translator
 PyQt6
 scipy
 numpy
+silero-vad
+onnxruntime
