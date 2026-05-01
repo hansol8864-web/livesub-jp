@@ -32,7 +32,7 @@
 
 또는 git이 있으면:
 ```bash
-git clone https://github.com/USERNAME/livesub-jp.git
+git clone https://github.com/hansol8864-web/livesub-jp.git
 ```
 
 ### 2. Python 설치 (없는 경우만)
